@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PromptMon Cyberpunk Global Styles */
+:root {
+  --primary-blue: #1e40af;
+  --primary-purple: #7c3aed;
+  --electric-yellow: #fbbf24;
+  --fire-red: #dc2626;
+  --grass-green: #16a34a;
+  --water-blue: #0ea5e9;
+  
+  /* Cyberpunk Neon Colors */
+  --neon-blue: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff41;
+  --neon-purple: #bf00ff;
+  --cyber-dark: #0A0A0B;
+  --cyber-grid: #1a1a2e;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-300;
+  }
+  
+  .promptmon-card {
+    @apply bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all duration-300;
+  }
+  
+  /* Cyberpunk Components */
+  .btn-cyberpunk {
+    @apply relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50;
+  }
+  
+  .btn-cyberpunk-inner {
+    @apply inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl;
+  }
+  
+  .btn-cyberpunk-spinner {
+    @apply absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)];
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0,243,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,243,255,.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .text-glow {
+    text-shadow: 
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 60px currentColor;
+  }
+  
+  .text-neon-blue {
+    color: var(--neon-blue);
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 20px var(--neon-blue);
+  }
+  
+  .text-neon-pink {
+    color: var(--neon-pink);
+    text-shadow: 
+      0 0 5px var(--neon-pink),
+      0 0 10px var(--neon-pink),
+      0 0 20px var(--neon-pink);
+  }
+  
+  .card-holographic {
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.1) 0%,
+      rgba(118, 75, 162, 0.1) 25%,
+      rgba(240, 147, 251, 0.1) 50%,
+      rgba(79, 172, 254, 0.1) 75%,
+      rgba(102, 126, 234, 0.1) 100%
+    );
+    background-size: 300% 300%;
+    animation: holographic 3s ease infinite;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-holographic-border {
+    background: linear-gradient(
+      135deg,
+      #667eea 0%,
+      #764ba2 25%,
+      #f093fb 50%,
+      #4facfe 75%,
+      #667eea 100%
+    );
+    background-size: 300% 300%;
+    animation: holographic 3s ease infinite;
+  }
+}
+
+/* Animações Cyberpunk */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes holographic {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glitch {
+  0% { 
+    text-shadow: 2px 2px var(--neon-pink), -2px -2px var(--neon-blue); 
+    transform: translate(0);
+  }
+  25% { 
+    text-shadow: -2px 2px var(--neon-pink), 2px -2px var(--neon-blue); 
+    transform: translate(-2px, 2px);
+  }
+  50% { 
+    text-shadow: 2px -2px var(--neon-pink), -2px 2px var(--neon-blue); 
+    transform: translate(2px, -2px);
+  }
+  75% { 
+    text-shadow: -2px -2px var(--neon-pink), 2px 2px var(--neon-blue); 
+    transform: translate(-2px, -2px);
+  }
+  100% { 
+    text-shadow: 2px 2px var(--neon-pink), -2px -2px var(--neon-blue); 
+    transform: translate(0);
+  }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    box-shadow: 0 0 20px var(--neon-blue);
+    filter: brightness(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px var(--neon-blue), 0 0 60px var(--neon-blue);
+    filter: brightness(1.2);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glitch {
+  animation: glitch 2s infinite;
+}
+
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
