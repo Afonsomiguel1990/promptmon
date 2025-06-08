@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import SessionProviderWrapper from '@/components/layout/SessionProviderWrapper';
+import Navbar from '@/components/layout/Navbar';
 import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,7 +34,10 @@ export default async function RootLayout({
         
         <div className="relative z-10">
           <SessionProviderWrapper session={session}>
-            {children}
+            <Navbar />
+            <div className="min-h-screen pt-16">
+              {children}
+            </div>
           </SessionProviderWrapper>
         </div>
       </body>
