@@ -81,8 +81,8 @@ export default function HomePage() {
           >
             {session ? (
               <Link href="/game/matchmaking">
-                <CyberpunkButton variant="primary" size="lg" className="text-lg px-8 py-4">
-                  <Play className="mr-2" size={20} />
+                <CyberpunkButton variant="primary\" size="lg\" className="text-lg px-8 py-4">
+                  <Play className="mr-2\" size={20} />
                   Começar a Batalhar
                 </CyberpunkButton>
               </Link>
@@ -240,8 +240,8 @@ export default function HomePage() {
               {session ? (
                 <>
                   <Link href="/game/matchmaking">
-                    <CyberpunkButton variant="primary" size="lg" className="text-lg px-8 py-4">
-                      <Gamepad2 className="mr-2" size={20} />
+                    <CyberpunkButton variant="primary\" size="lg\" className="text-lg px-8 py-4">
+                      <Gamepad2 className="mr-2\" size={20} />
                       Entrar no Jogo
                     </CyberpunkButton>
                   </Link>
